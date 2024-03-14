@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import AddProduct from './pages/AddProduct/AddProduct'
 import Main from './layouts/Main/Main'
 import Products from './pages/Products/Products'
+import Edit from './pages/Edit/Edit'
 import Error from './pages/Error/Error'
 
 const router = createBrowserRouter([
@@ -20,7 +21,17 @@ const router = createBrowserRouter([
         element: <AddProduct />,
         errorElement: <Error />,
       },
-     
+      {
+        path: 'product-edit',
+        errorElement: <Error />,
+        children: [
+          {
+            path: ':id',
+            element: <Edit />,
+            errorElement: <Error />,
+          },
+        ],
+      },
     ],
   },
 ])

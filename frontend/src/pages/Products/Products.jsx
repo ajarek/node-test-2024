@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from "react-router-dom";
 
 import './Products.css'
 
 const Products = () => {
   const [data, setData] = useState([])
+  const navigate = useNavigate();
+
   const deleteProduct = async (id) => {
     try {
       await fetch(`http://localhost:3000/api/products/${id}`, {
@@ -14,9 +17,7 @@ const Products = () => {
       console.error(error)
     }
   }
-  const edit = () => {
-    console.log('edit')
-  }
+  
   useEffect(() => {
     const dataFetch = async () => {
       const data = await (
@@ -40,7 +41,7 @@ const Products = () => {
               <div><span>quantity:</span>{product.quantity}</div>
               <div><span>price:</span>{product.price}$</div>
               <div className='btn-container'>
-                <button onClick={edit}>🖊️</button>
+                <button onClick={() => navigate(`/product-edit/${product._id}`)}>🖊️</button>
                 <button onClick={()=>deleteProduct(product._id)}>🗑️</button>
               </div>
             </li>

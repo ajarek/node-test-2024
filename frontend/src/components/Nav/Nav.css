@@ -3,19 +3,24 @@
   max-width: 1440px;
   height: 80px;
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
+  gap: 32px;
   background-color: var(--white);
   color: var(--grey-dark);
-  padding: 0 20px;
+  padding: 0 120px;
   position: fixed;
   z-index: 2;
   background-color: blue;
 }
-.nav .link-logo h1 {
+.nav .link{
+  text-decoration: none;
+}
+.nav .link h1 {
   width: 100%;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  color: var(--black);
+  color: white;
   margin-left: 8px;
+  
 }

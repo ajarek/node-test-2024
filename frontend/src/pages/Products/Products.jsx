@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 
-import './Home.css'
+import './Products.css'
 
-const Home = () => {
+const Products = () => {
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const Home = () => {
   }, [])
   return (
     <>
-      <div className='home'>
+      <div className='products'>
         <h1>Products</h1>
         <ul>
           {data.map((product) => (
@@ -35,4 +35,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Products

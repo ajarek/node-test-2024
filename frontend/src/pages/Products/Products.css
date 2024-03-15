@@ -50,3 +50,15 @@ li span{
 .btn-container button{
   font-size: 1.5rem;
 }
+@media screen and (max-width: 940px) {
+  ul{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+}
+@media screen and (max-width: 600px) {
+  ul{
+    grid-template-columns: 1fr;
+  }
+  
+}

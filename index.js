@@ -2,7 +2,9 @@ const express = require('express')
 const mongoose = require('mongoose')
 const productRoute = require('./routes/product.route.js')
 const app = express()
- const cors = require('cors')
+const cors = require('cors')
+const PORT = 3000
+require('dotenv').config()
 // middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -15,13 +17,11 @@ app.get('/', (req, res) => {
 })
 
 mongoose
-  .connect(
-    'mongodb+srv://ajarek:ojcBXj5CTnUVeIfA@cluster0.rcwgmot.mongodb.net/lol?retryWrites=true&w=majority'
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('Connected to database!')
-    app.listen(3000, () => {
-      console.log('Server is running on port 3000')
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`)
     })
   })
   .catch(() => {
